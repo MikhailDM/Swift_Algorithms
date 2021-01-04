@@ -24,8 +24,7 @@ func solution(of digitsType: MultiType) -> Int {
               max > minMultiplicator else { break }
         guard String(multiplicator).count == digitsCount / 2,
               multiplicator > minMultiplicator else {
-            max -= 1
-            multiplicator = max
+            updateValues(max: &max, multiplicator: &multiplicator)
             continue
         }
         result = max * multiplicator
@@ -35,12 +34,16 @@ func solution(of digitsType: MultiType) -> Int {
         }
         minMultiplicator = multiplicator
         polindroms.append(result)
-        max -= 1
-        multiplicator = max
+        updateValues(max: &max, multiplicator: &multiplicator)
         guard String(max).count != digitsCount / 2 else { continue }
         break
     }
     return polindroms.max()!
+}
+
+func updateValues(max: inout Int, multiplicator: inout Int) {
+    max -= 1
+    multiplicator = max
 }
 
 func isPalindrom(num: Int) -> Bool {
