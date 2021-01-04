@@ -17,11 +17,13 @@ func solution(of digitsType: MultiType) -> Int {
     var minMultiplicator = 1
     var result = max * max
     var polindroms = [Int]()
-
-    let digitsCount = digitsType == .twoDigits ? 4 : 6
+    let digitsCount = String(result).count
+    
     while true {
-        guard String(max).count == digitsCount / 2 else { break }
-        guard String(multiplicator).count == digitsCount / 2 else {
+        guard String(max).count == digitsCount / 2,
+              max > minMultiplicator else { break }
+        guard String(multiplicator).count == digitsCount / 2,
+              multiplicator > minMultiplicator else {
             max -= 1
             multiplicator = max
             continue
@@ -31,7 +33,6 @@ func solution(of digitsType: MultiType) -> Int {
             multiplicator -= 1
             continue
         }
-        print("max: \(max) multiplicator \(multiplicator)")
         minMultiplicator = multiplicator
         polindroms.append(result)
         max -= 1
@@ -39,8 +40,6 @@ func solution(of digitsType: MultiType) -> Int {
         guard String(max).count != digitsCount / 2 else { continue }
         break
     }
-    //print("===== Result is: \(result)")
-    //return result
     return polindroms.max()!
 }
 
@@ -54,5 +53,5 @@ print(isPalindrom(num: 9009))
 print(isPalindrom(num: 9005))
 print(isPalindrom(num: 900009))
 
-//print(solution(of: .twoDigits))
+print(solution(of: .twoDigits))
 print(solution(of: .threeDigits))
