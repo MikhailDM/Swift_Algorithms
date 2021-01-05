@@ -15,45 +15,15 @@ class Solution {
         self.max = max
     }
     
-    /*
-     N = 10001
-     def divisible(n,plist):
-         for p in plist:
-             if n%p == 0:
-                 return True
-             else:
-                 pass
-         return False
-     P = [2]
-     for i in range(1,N):
-         s = P[i-1] + 1
-         while s:
-             if divisible(s,P):
-                 s += 1
-                 continue
-             else:
-                 break
-         P += [s]
-     print(P[-1])
-     */
     func isNatural(num: Int) -> Bool {
-        guard num >= 3 else { return false }
-        guard num != 2 else { return true }
-        for y in stride(from: 3, through: Int(sqrt(Double(num))), by: 2) {
+        guard num >= 2 else { return false }
+        guard num != 2, num != 3 else { return true }
+        guard num % 2 != 0, num % 3 != 0 else { return false }
+        for y in stride(from: 5, through: Int(sqrt(Double(num))), by: 6) {
             if num % y == 0 { return false }
+            if num % (y + 2) == 0 { return false }
         }
         return true
-//        prime = True
-//        for i in range(2, int(math.sqrt(n)+1)):
-//            if n % i == 0:
-//                prime = False
-//        if prime:
-//            prime_list.append(n)
-        
-//        guard num >= 2 else { return false }
-//        guard num != 2 else { return true }
-//        guard num % 2 != 0 else { return false }
-//        return !stride(from: 3, through: Int(sqrt(Double(num))), by: 2).contains { num % $0 == 0 }
     }
     
     func getResult() -> Int {
@@ -76,31 +46,6 @@ print("")
 
 let solution1001 = Solution(max: 10001)
 print("===== Result: \(solution1001.getResult())")
-
-/*
- # This function is called repeatedly by the generate_num() function
- def check_prime(n):
-     prime = True
-     for i in range(2, int(math.sqrt(n)+1)):
-         if n % i == 0:
-             prime = False
-     if prime:
-         prime_list.append(n)
-
-
- def generate_num():
-     i = 2
-     while True:
-         check_prime(i)
-         if len(prime_list) >= limit:
-             return prime_list[-1]
-         i += 1
-
-
- print(generate_num()) # Output is: 104743
- */
-
-
 
 //Массив натуральных чисел с верхней границей. Решето Эрастофена
 //func getListOfNaturalsNumbers(maxNum: Int) -> [Int] {
