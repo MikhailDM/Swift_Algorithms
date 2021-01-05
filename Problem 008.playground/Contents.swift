@@ -1,9 +1,17 @@
 import Foundation
 
+//MARK: - Problem Description
+
 /*
  Наибольшее произведение четырех последовательных цифр в нижеприведенном 1000-значном числе равно 9 × 9 × 8 × 9 = 5832
  Найдите наибольшее произведение тринадцати последовательных цифр в данном числе
 */
+
+//MARK: - Exeqution Timer
+
+let exequtionTimer = ExequtionTimer()
+
+//MARK: - Logic
 
 class Solution {
     
@@ -38,9 +46,9 @@ class Solution {
     
     func getResult() -> Int {
         megaList = megaString.map { Int("\($0)") ?? 0}
-        print(megaList)
+        //print(megaList)
         megaListCount = megaList.count
-        print(megaListCount)
+        //print(megaListCount)
         
         var startIndex = 0
         var megaListMaxMulti = 0
@@ -61,8 +69,17 @@ class Solution {
 
 }//
 
-let solution4 = Solution(length: 4)
-print("===== Result: \(solution4.getResult())")
+//MARK: - Solutions
 
+let solution4 = Solution(length: 4)
+print("===== Result with length 4: \(solution4.getResult())")
+
+exequtionTimer.start()
 let solution13 = Solution(length: 13)
-print("===== Result: \(solution13.getResult())")
+print("===== Result with length 13: \(solution13.getResult())")
+exequtionTimer.finish()
+
+
+
+
+
