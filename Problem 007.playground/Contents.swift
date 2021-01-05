@@ -15,7 +15,21 @@ class Solution {
         self.max = max
     }
     
-    func isNatural(num: Int) -> Bool {
+    func getResult() -> Int {
+        var i = 2
+        while primes.count < max {
+            guard i != 1 else { i += 1; continue }
+            guard i != 2 else { primes.append(i); i += 1; continue }
+            guard i != 3 else { primes.append(i); i += 2; continue }
+            if isPrime(num: i) { primes.append(i) }
+            if isPrime(num: i + 2) { primes.append(i + 2) }
+            i += 6
+        }
+        print("===== List: \(primes)")
+        return primes.last ?? 0
+    }
+    
+    private func isPrime(num: Int) -> Bool {
         guard num >= 2 else { return false }
         guard num != 2, num != 3 else { return true }
         guard num % 2 != 0, num % 3 != 0 else { return false }
@@ -26,23 +40,16 @@ class Solution {
         return true
     }
     
-    func getResult() -> Int {
-        var i = 2
-        while primes.count < max {
-            guard i != 2 else { primes.append(i); i += 1; continue }
-            if isNatural(num: i) { primes.append(i) }
-            i += 2
-        }
-        print("===== List: \(primes)")
-        return primes.last ?? 0
-    }
-    
 }//
+
+let solution1 = Solution(max: 1)
+print("===== Result: \(solution1.getResult())")
+
+let solution2 = Solution(max: 2)
+print("===== Result: \(solution2.getResult())")
 
 let solution10 = Solution(max: 6)
 print("===== Result: \(solution10.getResult())")
-
-print("")
 
 let solution1001 = Solution(max: 10001)
 print("===== Result: \(solution1001.getResult())")
