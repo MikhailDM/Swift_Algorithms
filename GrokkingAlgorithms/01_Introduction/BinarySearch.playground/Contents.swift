@@ -6,7 +6,7 @@ let executionTimer = ExecutionTimer()
 //MARK: - Logic
 class BinarySearch {
     
-    func binarySearchWithInt(for element: Int, in collection: [Int]) -> Int? {
+    func binarySearch<Element: Comparable>(for element: Element, in collection: [Element]) -> Int? {
         var lowIndex = 0
         var highIndex = collection.count - 1
         while lowIndex <= highIndex {
@@ -19,23 +19,37 @@ class BinarySearch {
     }
 }
 
+//Simple Int way
+//func binarySearch(for element: Int, in collection: [Int]) -> Int? {
+//    var lowIndex = 0
+//    var highIndex = collection.count - 1
+//    while lowIndex <= highIndex {
+//        let midIndex = (lowIndex + highIndex) / 2
+//        let guessNum = collection[midIndex]
+//        guard guessNum != element else { return midIndex }
+//        guessNum < element ? (lowIndex = midIndex + 1) : (highIndex = midIndex - 1)
+//    }
+//    return nil
+//}
+ 
 //MARK: - Solutions
 let binarySearch = BinarySearch()
 
-let input = Array(0...1_000_000)
+let input = Array(1...1_000_000)
 let goal = 1_000_000
 
-executionTimer.start(with: "Binary")
-print("===== Binary. Result with \(goal): \(String(describing: binarySearch.binarySearchWithInt(for: goal, in: input)))")
+//let input = Array(stride(from: 0.0, through: 100000.0, by: 0.1))
+//let goal = 100000.0
+
+executionTimer.start(with: "Linear")
+print("===== Linear. Result with \(goal): \(String(describing: input.firstIndex(of: goal)))")
 executionTimer.finish()
 
 print("")
 
-executionTimer.start(with: "Array")
-print("===== Array. Result with \(goal): \(String(describing: input.firstIndex(of: goal)))")
+executionTimer.start(with: "Binary")
+print("===== Binary. Result with \(goal): \(String(describing: binarySearch.binarySearch(for: goal, in: input)))")
 executionTimer.finish()
-
-
 
 //func binarySearch<Elements: RandomAccessCollection>(
 //    for element: Elements.Element,
