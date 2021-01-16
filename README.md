@@ -1,11 +1,11 @@
 Algorithms 
 =========================   
 
-## GrokkingAlgorithms
+>## GrokkingAlgorithms
 Algorithms Book Grokking Algorithms
 
-## LeetCode
+>## LeetCode
 Solving the problems of the LeetCode project
 
-## Project Euler 
+>## Project Euler 
 Solving the problems of the Euler project
