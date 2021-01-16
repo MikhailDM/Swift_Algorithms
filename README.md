@@ -1,4 +1,12 @@
-Project Euler 
+Algorithms 
 =========================   
 
-Решение задач проекта Эйлера оптимальными способами
+>## Project Euler 
+Solving the problems of the Euler project
+
+>## LeetCode
+Solving the problems of the LeetCode project
+
+>## GrokkingAlgorithms
+Algorithms Book Grokking Algorithms
+
