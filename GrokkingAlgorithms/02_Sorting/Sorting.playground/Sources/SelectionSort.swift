@@ -34,3 +34,27 @@ where CollectionType: MutableCollection, CollectionType.Element: Comparable {
         }
     }
 }
+
+public enum SortType {
+    case ascending
+    case descending
+}
+
+public func selectionSortSimple(_ array: inout [Int], type: SortType) {
+    guard array.count >= 2 else { return}
+    for currentIndex in 0..<(array.count - 1) {
+        var lowerIndex = currentIndex
+        for otherIndex in (currentIndex + 1)..<array.count {
+            switch type {
+            case .ascending:
+                guard array[otherIndex] < array [currentIndex] else { continue }
+            case .descending:
+                guard array[otherIndex] > array [currentIndex] else { continue }
+            }
+            lowerIndex = otherIndex
+        }
+        if lowerIndex != currentIndex {
+            array.swapAt(currentIndex, lowerIndex)
+        }
+    }
+}

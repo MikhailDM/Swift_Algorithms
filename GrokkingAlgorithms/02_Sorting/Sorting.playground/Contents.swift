@@ -1,10 +1,3 @@
-example(of: "bubble sort") {
-    var array = [9, 4, 10, 3]
-    print("Original: \(array)")
-    bubbleSort(&array)
-    print("Bubble sorted: \(array)")
-}
-
 example(of: "selection sort") {
     var array = [9, 4, 10, 3]
     print("Original: \(array)")
@@ -12,9 +5,11 @@ example(of: "selection sort") {
     print("Selection sorted: \(array)")
 }
 
-example(of: "insertion sort") {
+example(of: "selection sort simple") {
     var array = [9, 4, 10, 3]
     print("Original: \(array)")
-    insertionSort(&array)
-    print("Insertion sorted: \(array)")
+    selectionSortSimple(&array, type: .ascending)
+    print("Selection sorted ascending: \(array)")
+    selectionSortSimple(&array, type: .descending)
+    print("Selection sorted descending: \(array)")
 }
