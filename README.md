@@ -12,6 +12,15 @@ Selection Sort
 ### 03_Recursion
 Recursion
 
+### 04_QuickSort
+Quick Sort
+
+### 04_QuickSort
+Quick Sort
+
+### 05_HashTables
+Dictionaries
+
 >## LeetCode
 Solving the problems of the LeetCode project
 
